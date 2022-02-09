@@ -9,6 +9,9 @@ class User(AbstractUser):
         MALE = "M", "남성"
         FEMALE = 'F', '여성'
 
+    follower_set = models.ManyToManyField('self', blank=True)
+    following_set = models.ManyToManyField('self', blank=True)
+    
     email = models.EmailField(
         max_length=255,
         unique=True,
